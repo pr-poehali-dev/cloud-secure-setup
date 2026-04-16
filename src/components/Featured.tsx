@@ -116,12 +116,12 @@ export default function Featured() {
               </p>
               <button
                 onClick={() => { if (selectedCity === "Казань") setShowMap(true); }}
-                className={`px-6 py-4 bg-neutral-900 text-white text-sm uppercase tracking-wide transition-all duration-300 w-full sm:w-auto text-center
-                  ${selectedCity === "Казань" ? "hover:bg-neutral-700 cursor-pointer" : "opacity-50 cursor-not-allowed"}`}
+                className={`px-6 py-4 bg-white text-neutral-900 border border-neutral-900 text-sm uppercase tracking-wide transition-all duration-300 w-full sm:w-auto text-center
+                  ${selectedCity === "Казань" ? "hover:bg-white hover:text-neutral-900 cursor-pointer" : "opacity-50 cursor-not-allowed"}`}
               >
                 Маршрут по объектам материального культурного наследия
               </button>
-              <button className="px-6 py-4 bg-white text-neutral-900 border border-neutral-900 text-sm uppercase tracking-wide hover:bg-neutral-900 hover:text-white transition-all duration-300 cursor-pointer w-full sm:w-auto text-center">
+              <button className="px-6 py-4 bg-white text-neutral-900 border border-neutral-900 text-sm uppercase tracking-wide hover:bg-white hover:text-neutral-900 transition-all duration-300 cursor-pointer w-full sm:w-auto text-center">
                 Маршрут по объектам нематериального культурного наследия
               </button>
             </motion.div>
