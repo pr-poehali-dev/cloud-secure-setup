@@ -20,16 +20,16 @@ export default function Promo() {
           <img
             src="https://cdn.poehali.dev/projects/10985523-2211-464f-91ec-49a510babb0d/bucket/82023c33-207d-44e3-bda4-3bc974f3000c.png"
             alt="Культурная карта России"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-top"
           />
         </motion.div>
       </div>
 
-      <h3 className="absolute top-12 right-6 text-white uppercase z-10 text-sm md:text-base lg:text-lg">
+      <h3 className="absolute top-12 right-6 text-neutral-800 uppercase z-10 text-sm md:text-base lg:text-lg">
         Культура живёт
       </h3>
 
-      <p className="absolute bottom-12 right-6 text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-5xl z-10">
+      <p className="absolute bottom-12 right-6 text-neutral-900 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-5xl z-10">
         Тысячи лет истории, традиций и памятников — в каждом городе своя неповторимая
         история, которую можно пройти пешком.
       </p>
