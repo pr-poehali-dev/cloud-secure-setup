@@ -27,7 +27,7 @@ function MapModal({ onClose }: { onClose: () => void }) {
         </div>
         <div className="flex-1 relative">
           <iframe
-            src={`https://api-maps.yandex.ru/services/constructor/1.0/html/?um=constructor%3A545884e799018532e7b42792c244243f0c988ba6f4d637d09915d85099520fb4&lang=ru_RU&scroll=true`}
+            src="https://yandex.ru/maps/?um=constructor%3A545884e799018532e7b42792c244243f0c988ba6f4d637d09915d85099520fb4&source=constructorLink"
             width="100%"
             height="100%"
             frameBorder="0"
