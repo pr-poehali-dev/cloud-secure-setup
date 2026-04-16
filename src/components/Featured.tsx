@@ -36,11 +36,14 @@ function IntangibleMapModal({ onClose }: { onClose: () => void }) {
           />
         </div>
         <div className="px-5 py-4 border-t border-neutral-200 flex justify-end">
-          <button
+          <a
+            href="https://vk.com/doc506705762_699984803?hash=fzmtmZLnVjepDrFD8F13WVc7o3aaB4d3fobKtCna6w4&dl=t0GEDQqei6iRBZv1j47faalRHotzWFMsyrrFB26o4qz&from_module=vkmsg_desktop"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-6 py-3 bg-neutral-900 text-white text-sm uppercase tracking-wide hover:bg-neutral-700 transition-all duration-300"
           >
             Начать экскурсию
-          </button>
+          </a>
         </div>
       </div>
     </div>
