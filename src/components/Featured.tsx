@@ -3,6 +3,50 @@ import { motion, AnimatePresence } from "framer-motion";
 import Icon from "@/components/ui/icon";
 
 
+function IntangibleMapModal({ onClose }: { onClose: () => void }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60" onClick={onClose}>
+      <div
+        className="relative bg-white w-full max-w-3xl mx-4 flex flex-col"
+        style={{ height: "70vh" }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between px-5 py-3 border-b border-neutral-200">
+          <p className="uppercase text-xs tracking-widest text-neutral-600">
+            Казань — Маршрут по объектам нематериального культурного наследия
+          </p>
+          <button onClick={onClose} className="text-neutral-500 hover:text-black transition-colors">
+            <Icon name="X" size={20} />
+          </button>
+        </div>
+        <div className="flex-1 relative">
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?um=constructor%3A1e495072c06842340e6bb3843450a1a572742008c0cfa9e4c85837210951dcf7&source=constructor"
+            width="100%"
+            height="100%"
+            frameBorder="0"
+            allowFullScreen
+            style={{ border: "none", display: "block" }}
+          />
+        </div>
+        <div className="px-5 py-4 border-t border-neutral-200 flex justify-end">
+          <button
+            className="px-6 py-3 bg-neutral-900 text-white text-sm uppercase tracking-wide hover:bg-neutral-700 transition-all duration-300"
+          >
+            Начать экскурсию
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function MapModal({ onClose }: { onClose: () => void }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
@@ -71,10 +115,12 @@ const CITIES = [
 export default function Featured() {
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
   const [showMap, setShowMap] = useState(false);
+  const [showIntangibleMap, setShowIntangibleMap] = useState(false);
 
   return (
     <div className="min-h-screen bg-white px-6 py-20 flex flex-col items-center">
       {showMap && <MapModal onClose={() => setShowMap(false)} />}
+      {showIntangibleMap && <IntangibleMapModal onClose={() => setShowIntangibleMap(false)} />}
       <div className="max-w-5xl w-full">
         <h3 className="uppercase mb-4 text-sm tracking-widest text-neutral-500 text-center">
           Культурные маршруты
@@ -121,7 +167,11 @@ export default function Featured() {
               >
                 Маршрут по объектам материального культурного наследия
               </button>
-              <button className="px-6 py-4 bg-white text-neutral-900 border border-neutral-900 text-sm uppercase tracking-wide hover:bg-neutral-900 hover:text-white transition-all duration-300 cursor-pointer w-full sm:w-auto text-center">
+              <button
+                onClick={() => { if (selectedCity === "Казань") setShowIntangibleMap(true); }}
+                className={`px-6 py-4 bg-white text-neutral-900 border border-neutral-900 text-sm uppercase tracking-wide transition-all duration-300 w-full sm:w-auto text-center
+                  ${selectedCity === "Казань" ? "hover:bg-neutral-900 hover:text-white cursor-pointer" : "opacity-50 cursor-not-allowed"}`}
+              >
                 Маршрут по объектам нематериального культурного наследия
               </button>
             </motion.div>
