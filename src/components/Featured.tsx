@@ -118,7 +118,7 @@ export default function Featured() {
   const [showIntangibleMap, setShowIntangibleMap] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white px-6 py-20 flex flex-col items-center">
+    <div id="cities" className="min-h-screen bg-white px-6 py-20 flex flex-col items-center">
       {showMap && <MapModal onClose={() => setShowMap(false)} />}
       {showIntangibleMap && <IntangibleMapModal onClose={() => setShowIntangibleMap(false)} />}
       <div className="max-w-5xl w-full">
