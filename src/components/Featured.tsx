@@ -35,6 +35,16 @@ function MapModal({ onClose }: { onClose: () => void }) {
             style={{ border: "none", display: "block" }}
           />
         </div>
+        <div className="px-5 py-4 border-t border-neutral-200 flex justify-end">
+          <a
+            href="https://psv4.userapi.com/s/v1/d2/-5WTQToCojKpUvVznbDduh6enN9PN6jdWOWl7R6fP-2Js-ilSf-mdUdV-xbXjjuguFDn-uidqLHKHwxolGmIABm9RAksgQKxIrSFp6kMy6wXhEKdiBqGzruVoR3ChUrhdMM6QxXTXLQt/Tatarstan_tema_itog.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 bg-neutral-900 text-white text-sm uppercase tracking-wide hover:bg-neutral-700 transition-all duration-300"
+          >
+            Начать экскурсию
+          </a>
+        </div>
       </div>
     </div>
   );
