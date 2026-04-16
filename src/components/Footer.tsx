@@ -1,5 +1,32 @@
-export default function Footer() {
+import { useState } from "react";
+
+function AboutModal({ onClose }: { onClose: () => void }) {
   return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70" onClick={onClose}>
+      <div
+        className="bg-white max-w-xl w-full mx-4 p-8 relative"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-neutral-400 hover:text-black transition-colors text-xl leading-none"
+        >
+          ✕
+        </button>
+        <h2 className="uppercase text-xs tracking-widest text-neutral-500 mb-4">О проекте</h2>
+        <p className="text-neutral-900 text-base leading-relaxed">
+          Наша цель — поспособствовать глубокому пониманию категорий материального и нематериального культурного наследия среди населения, раскрыть разнообразие форм культурного наследия и подчеркнуть их значение для самоидентификации народа и общества.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+export default function Footer() {
+  const [showAbout, setShowAbout] = useState(false);
+  return (
+    <>
+    {showAbout && <AboutModal onClose={() => setShowAbout(false)} />}
     <div
       className="relative h-[400px] sm:h-[600px] lg:h-[800px] max-h-[800px]"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
@@ -31,12 +58,12 @@ export default function Footer() {
               </div>
               <div className="flex flex-col gap-1 sm:gap-2">
                 <h3 className="mb-1 sm:mb-2 uppercase text-neutral-400 text-xs sm:text-sm">Проект</h3>
-                <a
-                  href="#about"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
+                <button
+                  onClick={() => setShowAbout(true)}
+                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base text-left"
                 >
                   О проекте
-                </a>
+                </button>
                 <a
                   href="#contact"
                   className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
@@ -55,5 +82,6 @@ export default function Footer() {
         </div>
       </div>
     </div>
+    </>
   );
 }
